@@ -11,18 +11,69 @@
             //CREATE variable computerChoice = "";
             //CREATE variable randomNumber with size between 0 and 2
             //CREATE if condition with 0 = rock, 1 = paper, 2 = scissors saving the result into computerChoice
-            //return computerChoice 
-        //CREATE funtion getHumanChoice
+            //return computerChoice
+            
+
+            function getComputerChoice(){
+                let computerChoice ="";
+                let randomNumber = Math.floor(Math.random()*3)
+
+                if(randomNumber == 0){
+                    computerChoice = "rock"
+                }else if(randomNumber == 1){
+                    computerChoice = "paper"
+                }else {
+                    computerChoice = "scissors"
+                }
+                return computerChoice;
+            } 
+            
+             //CREATE funtion getHumanChoice
             //CREATE variable humanChoice=input from user
             //return humanChoice
-        //CREATE variable humanScore = 0
+            function getHumanChoice(){
+                let humanChoice = prompt("Enter your weapond!");
+            
+                humanChoice = humanChoice.toLowerCase();
+                return humanChoice;
+            }
+
+
+         //CREATE variable humanScore = 0
         //CREATE variable computerScore = 0
+       let humanScore = 0;
+       let computerScore = 0;
+
+
+      
         //CREATE function playRound with parameters computerChoice and humanChoice
             //CREATE if condition to compare computerChoice and humanChoice
             //if computerChoice = humanChoice end the round
             //if computerChoice = "rock" and humanChoice = "paper" add +1 too humanScore
             //if computerChoice = "rock" and humanChoice = "scissors" add +1 to computerScore
-            //if computerScore = "paper"  
+            //if computerScore = "paper"
+        function playRound(){
+             let humanChoice = getHumanChoice();
+             let computerChoice = getComputerChoice();
+
+             console.log(humanChoice)
+             console.log(computerChoice)
+             if(humanChoice != computerChoice){
+                if(humanChoice == "rock"){
+                    computerChoice == "paper" ? computerScore++ : humanScore++
+                }else if(humanChoice =="paper"){
+                    computerChoice=="rock"? humanScore++ : computerScore++
+                }else {
+                    computerChoice == "rock" ? computerScore++ : humanScore++
+                }
+                console.log(humanScore);
+                console.log(computerScore);
+                humanScore > computerScore ? console.log("You won!") : console.log("Computer won!")
+             }else {
+                console.log("DRAW")
+             }
+        }  
+        playRound();
     </script>
 </body>
 </html>
