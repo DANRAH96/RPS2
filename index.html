@@ -72,8 +72,23 @@
              }else {
                 console.log("DRAW")
              }
+             return computerScore
         }  
-        playRound();
+        playGame();
+
+        function playGame(){
+            for(i=0; i<5; i++){
+                playRound()
+            }
+            checkWinner(computerScore, humanScore);
+        }
+
+        function checkWinner(computerScore, humanScore){
+            if(computerScore != humanScore){
+                let winner = computerScore > humanScore ? "Computer wins the game!" : "You win the game!"
+            }
+        }
+
     </script>
 </body>
 </html>
